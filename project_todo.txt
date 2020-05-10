@@ -1,4 +1,0 @@
-add forms to table
-add header and footer to rest of pages
-fix navbar covering heading
-see if edit and delete buttons can become more 'resizeable'

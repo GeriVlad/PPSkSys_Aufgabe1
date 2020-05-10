@@ -1,0 +1,5 @@
+-add forms to table
+    -use forms with buttons? (like in bootstrap template https://getbootstrap.com/docs/4.1/examples/checkout/)
+-add header and footer to rest of pages
+-fix navbar covering heading
+-see if edit and delete buttons can become more 'resizeable'
