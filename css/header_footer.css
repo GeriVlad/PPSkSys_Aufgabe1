@@ -6,7 +6,7 @@ html {
 }
 body {
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  padding-top: 65px;
 }
 /* .header{
   padding-bottom: 60px 15px 0;
@@ -38,3 +38,12 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+/* #header1 {
+  margin-bottom: auto;
+} */
+
+/* .form-inline {
+  display: flex;
+  width: auto;
+} */
