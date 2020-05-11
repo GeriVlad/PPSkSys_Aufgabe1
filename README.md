@@ -6,6 +6,8 @@ Todo page using **Bootstrap** including:
 - a page to demonstrate how to edit a todo
 - Impressum
 
+see project todo
+
 ## Authors:
 @GeriVlad
 
