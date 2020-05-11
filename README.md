@@ -6,7 +6,7 @@ Todo page using **Bootstrap** including:
 - a page to demonstrate how to edit a todo
 - Impressum
 
-see project todo
+[Project Todo](https://github.com/GeriVlad/PPSkSys_Aufgabe1/blob/master/project_todo.md)
 
 ## Authors:
 @GeriVlad
