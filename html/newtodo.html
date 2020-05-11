@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="../css/header_footer.css" rel="stylesheet">
+
 
     <title>Create TODO</title>
   </head>
@@ -33,13 +35,13 @@
   </header>
 
     <div class="container">
-      <h1 style="padding-top: 65px;">Create new TODO</h1>
+      <h1>Create new TODO</h1>
       <table class="table">
         <!-- First row with labels for columns -->
         <thead> 
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">TODO text (less than 160 symbols)</th>
+                <th scope="col">ToDo</th>
                 <th scope="col">Deadline</th>
                 <th scope="col">Progress</th>
                 <th scope="col">Modify</th>
@@ -72,7 +74,7 @@
                 <div class="col-auto">
                     <td>
                         <button type="submit" class="btn btn-outline-primary">Save</button>
-                        <button type="delete" class="btn btn-outline-danger">Delete</button>
+                        <button type="delete" class="btn btn-outline-danger" title="Delete to be..." disabled>Delete</button>
                     </td>
                 </div>
                 </div>
