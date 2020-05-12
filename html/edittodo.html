@@ -36,7 +36,6 @@
           <!-- First row with labels for columns -->
           <thead> 
               <tr>
-                  <th scope="col"></th>
                   <th scope="col">ToDo</th>
                   <th scope="col">Deadline</th>
                   <th scope="col">Progress</th>
@@ -44,35 +43,30 @@
               </tr>
           </thead>
           <tr>
-              <th scope="row">1</th>
               <form class="form-inline">
                   <div class="form-row align-items-center">
   
-                  <div class="col-auto">
                       <td>
                           <label class="sr-only" for="inlineFormInput">Name</label>
                           <input type="text" class="form-control" id="inlineFormInput" placeholder="Text (less than 160 symbols)">
                           <!-- <small id="toDoTextHelp" class="form-text text-muted">Text less than 160 symbols.</small> -->
                       </td>    
-                  </div>
-                  <div class="col-auto">
+                  
                       <td>
                           <label class="sr-only" for="inlineFormInputGroup">Deadline</label>
                           <input type="date" class="form-control" id="inlineFormInput" placeholder="Deadline">
                       </td>
-                      </div>
-                  <div class="col-auto">
+
                       <td>
                           <label class="sr-only" for="inlineFormInputGroup">Progress</label>
                           <input type="number" class="form-control" id="inlineFormInput" placeholder="Input percentage">   
                       </td>
-                  </div>
-                  <div class="col-auto">
+                  
                       <td>
                           <button type="submit" class="btn btn-outline-primary">Save</button>
                           <button type="delete" class="btn btn-outline-danger">Delete</button>
                       </td>
-                  </div>
+                  
                   </div>
               </form>
             </tr>
