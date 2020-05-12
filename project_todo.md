@@ -3,3 +3,8 @@
 - ~~add header and footer to rest of pages~~
 - ~~fix navbar covering heading~~
 - see if edit and delete buttons can become more 'resizeable'
+- fix navbar elements disappearing for "mobile" page width
+- fix overall formatting of html files for better readability
+
+- transfer these as todos on the webpage?
+
