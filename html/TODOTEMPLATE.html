@@ -274,11 +274,53 @@
                         </td>
                     </tr> 
                 -->
-
-
             </table>
 
             <a href="newtodo.html" class="btn btn-primary" role="button">Create New TODO</a>
+
+            <hr>
+
+            <h3>Create and Edit with Table and Forms</h3>
+            
+            <table class="table">
+            <thead> 
+                <tr>
+                <th scope="col">ToDo</th>
+                <th scope="col">Deadline</th>
+                <th scope="col">Progress</th>
+                <th scope="col">Modify</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <form class="form-inline">
+                <div class="form-row align-items-center">
+
+                    <td>
+                    <label class="sr-only" for="textField">TODO </label>
+                    <input type="text" class="form-control" id="textField" placeholder="Text (less than 160 symbols)">
+                    </td>
+
+                    <td>
+                    <label class="sr-only" for="deadline">Deadline</label>
+                    <input type="date" class="form-control" id="deadline" placeholder="Deadline">
+                    </td>
+
+                    <td>
+                    <label class="sr-only" for="percentage">Progress</label>
+                    <input type="number" class="form-control" id="percentage" placeholder="Input percentage"> 
+                    </td>
+
+                    <td>
+                    <button type="submit" class="btn btn-outline-primary btn-autosize">Save</button>
+                    <button type="delete" class="btn btn-outline-danger btn-autosize" title="Delete to be..." disabled>Delete</button>
+                    </td>
+                    
+                </div>
+                </form>
+            </tr>
+            </table>
+
 
         </div>
     </main>
