@@ -1,82 +1,15 @@
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height */
-  padding-top: 65px;
-}
-/* .header{
-  padding-bottom: 60px 15px 0;
-} */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
-}
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
-body > .container {
-  padding: 60px 15px 0;
-}
-
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-code {
-  font-size: 80%;
-}
-
-/* #header1 {
-  margin-bottom: auto;
-} */
-
-/* .form-inline {
-  display: flex;
-  width: auto;
-} */
-
-#progress_test {
-  display: block;
-}
-
-/* messing around with different colors:  */
-/* .btn-primary {
-  background-color: #a51cc7;
-  border-color: #fffefe;
-}
-
-.progress-bar {
-  background-color: #b86ef5;
-}
-
-#navbarcolor1 {
-  color:  #d54df7;
-}
-
-.navbar-brand {
-  color:  #d54df7;
-} */
-
 /* Responsive Buttons
 -------------------------------------------------- */
-
-/* Small devices (landscape phones, less than 768px) and below */
+/* For small devices (landscape phones, less than 768px) and below */
 @media (max-width: 767.98px) { 
   .btn-autosize {
-    font-size:80%;
-    margin-bottom: 10%;
+    font-size:85%;
+    margin-top: 5%;
   }
+}
+
+/* So that heading appears below navbar */
+body {
+  /* Margin top by header height */
+  padding-top: 65px;
 }

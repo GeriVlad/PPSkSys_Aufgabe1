@@ -7,79 +7,88 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom CSS -->
     <link href="../css/header_footer.css" rel="stylesheet">
-
 
     <title>Create TODO</title>
   </head>
 
   <body>
+    <!-- Header with navbar -->
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-          <a class="navbar-brand">ToDo</a>
-          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+        <!-- Project Name -->
+        <a class="navbar-brand">ToDo</a>
+
+        <!-- Navbar Tabs -->
+        <!-- collapsed for small devices and below -->
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-              <a class="nav-link" href="overview.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-              <a class="nav-link" href="newtodo.html">New</a>
-              </li>
-              <li class="nav-item dropdown">
-              
-              </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="overview.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="newtodo.html">New <span class="sr-only">(current)</span></a>
+            </li>
           </ul>
-          <a class="nav-link" href="impressum.html">Impressum</a>
-          </div>
+        </div>
+        <!-- Impressum (non-collapsable) -->
+        <a class="nav-link" href="impressum.html">Impressum</a>
+
       </nav>
     </header>
 
+    <!-- Main content of the site -->
     <div class="container">
+      <!-- Heading -->
       <h1>Create new TODO</h1>
+
+      <hr>
       
-      <table class="table">
-        <!-- First row with labels for columns -->
-        <thead> 
-            <tr>
-                <th scope="col">ToDo</th>
-                <th scope="col">Deadline</th>
-                <th scope="col">Progress</th>
-                <th scope="col">Modify</th>
-            </tr>
-        </thead>
+      <!-- Form to create new TODO -->
+      <form>
+        <div class="form-row align-items-center">
+          <!-- Four columns next to each other until medium breakpoint,
+          stacked below each other after -->
+          
+          <!-- for TODO text -->
+          <div class="form-group col-md-4">
+            <label for="textField">TODO </label>
+            <input type="text" class="form-control" id="textField" placeholder="Text (less than 160 symbols)">
+          </div>
 
-        <tr>
-            <form class="form-inline">
-                <div class="form-row align-items-center">
+          <!-- for TODO Deadline -->
+          <div class="form-group col-md-3">
+            <label for="deadline">Deadline</label>
+            <input type="date" class="form-control" id="deadline" placeholder="Deadline">
+          </div>
 
-                    <td>
-                        <label class="sr-only" for="inlineFormInput">Name</label>
-                        <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Text (less than 160 symbols)">
-                        <!-- <small id="toDoTextHelp" class="form-text text-muted">Text less than 160 symbols.</small> -->
-                    </td>
+          <!-- for TODO Progress -->
+          <div class="form-group col-md-2">
+            <label for="percentage">Progress</label>
+            <input type="number" class="form-control" id="percentage" placeholder="Input percentage">
+          </div>
 
-                    <td>
-                        <label class="sr-only" for="inlineFormInputGroup">Deadline</label>
-                        <input type="date" class="form-control" id="inlineFormInput" placeholder="Deadline">
-                    </td>
+          <!-- Buttons to Save or Delete -->
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-outline-primary mt-md-3">Save</button>
+            <button type="delete" class="btn btn-outline-danger mt-md-3" title="Delete to be..." disabled>Delete</button>
+          </div>
 
-                    <td>
-                        <label class="sr-only" for="inlineFormInputGroup">Progress</label>
-                        <input type="number" class="form-control" id="inlineFormInput" placeholder="Input percentage">   
-                    </td>
+        </div>
+      </form>
 
-                    <td>
-                        <button type="submit" class="btn btn-outline-primary">Save</button>
-                        <button type="delete" class="btn btn-outline-danger" title="Delete to be..." disabled>Delete</button>
-                    </td>
-                    
-                </div>
-            </form>
-          </tr>
-      </table>
-
-      <a href="newtodo.html" class="btn btn-primary" role="button">Create New TODO</a>
-      <a href="overview.html" class="btn btn-primary" role="button">Back to Overview</a>
+      <!-- Back to Overview Button -->
+      <a href="overview.html" class="btn btn-primary mt-3" role="button">Back to Overview</a>
     </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
