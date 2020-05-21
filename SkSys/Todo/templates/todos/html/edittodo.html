@@ -26,51 +26,52 @@
 				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="overview.html">Home</a>
+							<a class="nav-link" href="overview">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="newtodo.html">New</a>
+							<a class="nav-link" href="newtodo">New</a>
 						</li>
 					</ul>
 				</div>
 				<!-- Impressum (non-collapsable) -->
-				<a class="nav-link" href="impressum.html">Impressum</a>
+				<a class="nav-link" href="impressum">Impressum</a>
 
 			</nav>
 		</header>
-
 		<!-- Main content of the site -->
 		<div class="container">
 			<!-- Heading -->
 			<h1>Editing TODO</h1>
 
 			<hr>
+
+			{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 			
 			<!-- Form to edit TODO -->
-			<form>
+			<form action="{% url 'todos:edit' todo.id%}" method="post">
 				<div class="form-row align-items-center">
 					
 					<!-- for TODO text -->
 					<div class="form-group col-md-4">
 						<label for="textField">TODO </label>
-						<input type="text" class="form-control" id="textField" placeholder="Text (less than 160 symbols)">
+						<input type="text" class="form-control" id="todo.textField" placeholder="Text (less than 160 symbols)" value="{{todo.todo_text}}">
 					</div>
 
 					<!-- for TODO Deadline -->
 					<div class="form-group col-md-3">
 						<label for="deadline">Deadline</label>
-						<input type="date" class="form-control" id="deadline" placeholder="Deadline">
+						<input type="date" class="form-control" id="todo.deadline" value={{todo.deadline}}>
 					</div>
 
 					<!-- for TODO Progress -->
 					<div class="form-group col-md-2">
 						<label for="percentage">Progress</label>
-						<input type="number" class="form-control" id="percentage" placeholder="Input percentage">
+						<input type="number" class="form-control" id="todo.progess" value={{todo.progess}}>
 					</div>
 
 					<!-- Buttons to Save or Delete -->
 					<div class="col-md-3">
-						<button type="submit" class="btn btn-outline-primary mt-md-3">Save</button>
+						<button type="submit" class="btn btn-outline-primary mt-md-3" value="todo" >Save</button>
 						<button type="delete" class="btn btn-outline-danger mt-md-3" title="Delete to be..." disabled>Delete</button>
 					</div>
 
@@ -78,7 +79,7 @@
 			</form>
 
 			<!-- Back to Overview Button -->
-			<a href="overview.html" class="btn btn-primary mt-3" role="button">Back to Overview</a>
+			<a href="../../todo" class="btn btn-primary mt-3" role="button">Back to Overview</a>
 		</div>
 
     <!-- Bootstrap core JavaScript
