@@ -49,6 +49,7 @@
 			
 			<!-- Form to edit TODO -->
 			<form action="{% url 'todos:edit' todo.id%}" method="post">
+			{% csrf_token %}
 				<div class="form-row align-items-center">
 					
 					<!-- for TODO text -->

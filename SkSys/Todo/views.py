@@ -14,8 +14,11 @@ def detail(request, Todo_id):
 
 def edit(request, Todo_id):
     todo = get_object_or_404(Todo, pk=Todo_id)
+   # if request.method == POST
+
+    
     try:
-        selected_todo = todo.choice_set.get(pk=request.POST)
+        selected_todo = get(pk=request.POST)
     except (KeyError, Todo.DoesNotExist):
         return render(request, 'todo/detail.html', {
             'todo': todo,
