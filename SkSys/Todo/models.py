@@ -13,7 +13,7 @@ class Todo(models.Model):
     #Todo Text max 160 chars
     todo_text = models.CharField(max_length=160)
     #Deadline - defaults to today
-    deadline = models.DateField(default=datetime.date)
+    deadline = models.DateField(default=datetime.date.today)
     #Progress - integer between 0 and 100
     progress = models.PositiveSmallIntegerField(default=0, validators=[MaxValueValidator(100), MinValueValidator(0)])
     def __str__(self):

@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+import datetime
 
 from .models import Todo
+from .forms import TodoForm
 
 def index(request):
     latest_todo_list = Todo.objects.order_by('-last_modified')[:5]
@@ -14,25 +16,60 @@ def detail(request, Todo_id):
 
 def edit(request, Todo_id):
     todo = get_object_or_404(Todo, pk=Todo_id)
-   # if request.method == POST
+   
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
 
-    
-    try:
-        selected_todo = get(pk=request.POST)
-    except (KeyError, Todo.DoesNotExist):
-        return render(request, 'todo/detail.html', {
+        if form.is_valid():
+            Todo.todo_text = form.clean_todo_deadline_Form['todo_text_Form']
+            Todo.deadline = form.clean_todo_deadline_Form['todo_deadline_Form'] 
+            Todo.progress = form.clean_todo_progress_Form['todo_progress_Form']
+            Todo.save()
+
+            return HttpResponseRedirect(reverse('todo - saved'))
+    else:
+        form = TodoForm
+
+        context = {
+            'form': form,
             'todo': todo,
-            'error_message': "error... something went wrong",
-        })
-    else:  
-        selected_todo.save()
-        return HttpResponseRedirect(reverse('todo:overview'))
+        }
+        return render(request, 'todos/html/edittodo.html', context)
+    # try:
+    #     selected_todo = get(pk=request.POST)
+    # except (KeyError, Todo.DoesNotExist):
+    #     return render(request, 'todo/detail.html', {
+    #         'todo': todo,
+    #         'error_message': "error... something went wrong",
+    #     })
+    # else:  
+    #     selected_todo.save()
+    #     return HttpResponseRedirect(reverse('todo:overview'))
 
 
     return render(request, 'todos/html/edittodo.html', {'todo': todo})
 
 def new(request):
-    return render(request, 'todos/html/newtodo.html')
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+
+        if form.is_valid():
+            Todo.todo_text = form.clean_todo_deadline_Form['todo_text_Form']
+            Todo.deadline = form.clean_todo_deadline_Form['todo_deadline_Form'] 
+            Todo.progress = form.clean_todo_progress_Form['todo_progress_Form']
+            Todo.save()
+
+            return HttpResponseRedirect(reverse('todo - saved'))
+        else:
+            return 404
+    else:
+        form = TodoForm
+
+        context = {
+            'form': form,
+            'Todo': Todo,
+        }
+        return render(request, 'todos/html/newtodo.html', context)
 
 def impressum(request):
     return render(request, 'todos/html/impressum.html')

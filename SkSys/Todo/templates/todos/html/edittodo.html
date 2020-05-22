@@ -26,15 +26,15 @@
 				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 					<ul class="navbar-nav mr-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="overview">Home</a>
+							<a class="nav-link" href="../../overview">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="newtodo">New</a>
+							<a class="nav-link" href="../../newtodo">New</a>
 						</li>
 					</ul>
 				</div>
 				<!-- Impressum (non-collapsable) -->
-				<a class="nav-link" href="impressum">Impressum</a>
+				<a class="nav-link" href="../../impressum">Impressum</a>
 
 			</nav>
 		</header>
@@ -55,19 +55,19 @@
 					<!-- for TODO text -->
 					<div class="form-group col-md-4">
 						<label for="textField">TODO </label>
-						<input type="text" class="form-control" id="todo.textField" placeholder="Text (less than 160 symbols)" value="{{todo.todo_text}}">
+						<input type="text" class="form-control" id="form.todo_text" placeholder="Text (less than 160 symbols)" value="{{todo.todo_text}}">
 					</div>
 
 					<!-- for TODO Deadline -->
 					<div class="form-group col-md-3">
 						<label for="deadline">Deadline</label>
-						<input type="date" class="form-control" id="todo.deadline" value={{todo.deadline}}>
+						<input type="date" class="form-control" id="form.todo_deadline" value={{todo.deadline}}>
 					</div>
 
 					<!-- for TODO Progress -->
 					<div class="form-group col-md-2">
 						<label for="percentage">Progress</label>
-						<input type="number" class="form-control" id="todo.progess" value={{todo.progess}}>
+						<input type="number" class="form-control" id="form.todo_progress" value={{todo.progess}}>
 					</div>
 
 					<!-- Buttons to Save or Delete -->
@@ -80,7 +80,7 @@
 			</form>
 
 			<!-- Back to Overview Button -->
-			<a href="../../todo" class="btn btn-primary mt-3" role="button">Back to Overview</a>
+			<a href="../../overview" class="btn btn-primary mt-3" role="button">Back to Overview</a>
 		</div>
 
     <!-- Bootstrap core JavaScript
