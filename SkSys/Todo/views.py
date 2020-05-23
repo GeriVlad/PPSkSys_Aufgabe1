@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect,Http404
 from django.urls import reverse
 import datetime
 
@@ -22,7 +22,7 @@ def edit(request, Todo_id):
 
         if form.is_valid():
             Todo.todo_text = form.clean_todo_deadline_Form['todo_text_Form']
-            Todo.deadline = form.clean_todo_deadline_Form['todo_deadline_Form'] 
+            #Todo.deadline = form.clean_todo_deadline_Form['todo_deadline_Form'] 
             Todo.progress = form.clean_todo_progress_Form['todo_progress_Form']
             Todo.save()
 
@@ -52,24 +52,32 @@ def edit(request, Todo_id):
 def new(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
-
         if form.is_valid():
-            Todo.todo_text = form.clean_todo_deadline_Form['todo_text_Form']
-            Todo.deadline = form.clean_todo_deadline_Form['todo_deadline_Form'] 
-            Todo.progress = form.clean_todo_progress_Form['todo_progress_Form']
+            Todo.todo_text = form.cleaned_data['todo_text']
+            #Todo.deadline = form.cleaned_data['deadline'] 
+            Todo.progress = form.cleaned_data['progress']
+
             Todo.save()
 
-            return HttpResponseRedirect(reverse('todo - saved'))
+            return HttpResponseRedirect(reverse('todos/html/impressum.html'))
         else:
-            return 404
+            
+            return HttpResponseRedirect('overview')
     else:
         form = TodoForm
 
         context = {
             'form': form,
-            'Todo': Todo,
+            'todo': Todo,
         }
         return render(request, 'todos/html/newtodo.html', context)
 
 def impressum(request):
     return render(request, 'todos/html/impressum.html')
+
+def delete(request, Todo_id):
+    if request.method == 'POST':
+        if request.POST.get('delete'):
+            Todo.objects.filter(id=Todo_id).delete()
+    else:
+        return Http404("You're in the wrong place!")

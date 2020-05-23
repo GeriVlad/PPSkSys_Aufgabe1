@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link href="../css/header_footer.css" rel="stylesheet">
+    {%load static%}
+    <link href="{% static 'todos/header_footer.css' %}" rel="stylesheet">
 
     <title>Create TODO</title>
   </head>
@@ -47,7 +48,7 @@
       <hr>
       
       <!-- Form to create new TODO -->
-      <form action="{% url 'todos:newtodo' %}%" method="post">
+      <form action="{%url 'todos:newtodo'%}" method="post">
         {% csrf_token %}
         <div class="form-row align-items-center">
           <!-- Four columns next to each other until medium breakpoint,
@@ -60,10 +61,10 @@
           </div>
 
           <!-- for TODO Deadline -->
-          <div class="form-group col-md-3">
+          {% comment %} <div class="form-group col-md-3">
             <label for="deadline">Deadline</label>
             <input type="date" class="form-control" id="form.deadline" placeholder="Deadline">
-          </div>
+          </div> {% endcomment %}
 
           <!-- for TODO Progress -->
           <div class="form-group col-md-2">
@@ -73,7 +74,7 @@
 
           <!-- Buttons to Save or Delete -->
           <div class="col-md-3">
-            <button type="submit" class="btn btn-outline-primary mt-md-3" value="todo">Save</button>
+            <button type="submit" class="btn btn-outline-primary mt-md-3" value="form">Save</button>
             <button type="delete" class="btn btn-outline-danger mt-md-3" title="Delete to be..." disabled>Delete</button>
           </div>
 
@@ -87,9 +88,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    {% comment %} <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script> {% endcomment %}
   </body>
 </html>

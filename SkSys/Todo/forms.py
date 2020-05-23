@@ -52,8 +52,8 @@ class TodoForm(ModelForm):
                 raise ValidationError(_('Invalid Text - Text longer than 160 characters'))
             return data
     
-        def clean_todo_deadline_Form(self):
-            data = self.cleaned_data["todo_deadline_Form"]
+        def clean_deadline(self):
+            data = self.cleaned_data["deadline"]
 
             if data < datetime.date.today():
                 raise ValidationError(_('Invalid Date - Deadline in past'))
@@ -63,8 +63,8 @@ class TodoForm(ModelForm):
 
             return data
         
-        def clean_todo_progress_Form(self):
-            data = self.cleaned_data["todo_progress_Form"]
+        def clean_progress(self):
+            data = self.cleaned_data["progress"]
             
             if data < 0 or data > 100:
                 raise ValidationError(_('Invalid Progress - Progress must be between 0 and 100'))

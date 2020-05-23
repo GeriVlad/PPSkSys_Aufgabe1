@@ -1,3 +1,4 @@
+from django.contrib import admin
 from django.urls import path
 
 from . import views
@@ -8,6 +9,8 @@ urlpatterns = [
     path('overview', views.index, name='index'),
     path('<int:Todo_id>/', views.edit, name='edit'),
     path('<int:Todo_id>/edit/', views.edit, name='edit'),
-    path('newtodo', views.new, name='new_Todo'),
+    path('<int:Todo_id>/delete/', views.edit, name='delete'),
+    path('newtodo', views.new, name='newtodo'),
     path('impressum', views.impressum, name='impressum'),
+    path('admin/', admin.site.urls),
 ]

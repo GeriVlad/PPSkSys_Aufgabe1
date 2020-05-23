@@ -8,12 +8,13 @@
     <!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<!-- Custom CSS -->
-    <link href="../css/header_footer.css" rel="stylesheet">
+	{%load static%}
+    <link href="{% static 'todos/header_footer.css' %}" rel="stylesheet">
 
     <title>TODO Tracker</title>
   </head>
 
-  <body>
+	<body>
 		<!-- Header with navbar -->
 		<header>
 			<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -34,7 +35,7 @@
 					</ul>
 				</div>
 				<!-- Impressum (non-collapsable) -->
-				<a class="nav-link" href="impressum">Impressum</a>
+				<a class="nav-link" href="{% url 'todos:impressum'%}">Impressum</a>
 
 			</nav>
 		</header>
@@ -78,7 +79,10 @@
 									<!-- Buttons for Edit and Delete -->
 									<td>
 										<a href="{{Todo.id}}/edit" class="btn btn-primary btn-autosize" role="button">Edit</a>
-										<button type="button" class="btn btn-danger btn-autosize" data-toggle="tooltip" data-placement="right" title="Delete to be..." disabled>Delete</button>
+										<form action="{%url 'todos:delete' Todo.id%}" method="post">
+										{% csrf_token %}
+											<button type="submit" class="btn btn-danger btn-autosize" data-toggle="tooltip" data-placement="right" value="delete">Delete</button>
+										</form>
 									</td>
 								</tr>
 							{% endfor %}
@@ -95,9 +99,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    {% comment %} <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script> {% endcomment %}
   </body>
 </html>
