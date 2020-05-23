@@ -46,7 +46,7 @@
 				<!-- Heading -->
 				<h1>Your TODOs</h1>
 
-				{% if latest_todo_list %}
+				{% if all_todos %}
 					<!-- Table for TODOs -->
 					<table class="table table-hover table-striped">
 						<!-- First row with labels-->
@@ -62,7 +62,7 @@
 
 						<!-- Individual TODOs --> 
 						<tbody>
-							{% for Todo in latest_todo_list%}	
+							{% for Todo in all_todos%}	
 								<tr>
 									<th scope="row">{{Todo.id}}</th>
 									<td>{{Todo.todo_text}}</td>
@@ -79,7 +79,7 @@
 									<!-- Buttons for Edit and Delete -->
 									<td>
 										<a href="{{Todo.id}}/edit" class="btn btn-primary btn-autosize" role="button">Edit</a>
-										<form action="{%url 'todos:delete' Todo.id%}" method="post">
+										<form action="{%url 'todos:delete' Todo.id%}" method="POST">
 										{% csrf_token %}
 											<button type="submit" class="btn btn-danger btn-autosize" data-toggle="tooltip" data-placement="right" value="delete">Delete</button>
 										</form>

@@ -8,7 +8,9 @@ from .forms import TodoForm
 
 def index(request):
     latest_todo_list = Todo.objects.order_by('-last_modified')[:5]
-    context = {'latest_todo_list': latest_todo_list}
+    all_todos = Todo.objects.all()
+    # context = {'latest_todo_list': latest_todo_list}
+    context = {'all_todos': all_todos}
     return render(request, 'todos/html/overview.html', context)
 
 def detail(request, Todo_id):
@@ -77,7 +79,7 @@ def impressum(request):
 
 def delete(request, Todo_id):
     if request.method == 'POST':
-        if request.POST.get('delete'):
-            Todo.objects.filter(id=Todo_id).delete()
+        Todo.objects.filter(id=Todo_id).delete()
+        return(HttpResponseRedirect(reverse('overview')))
     else:
         return Http404("You're in the wrong place!")

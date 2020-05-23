@@ -12,4 +12,5 @@
 body {
   /* Margin top by header height */
   padding-top: 65px;
+  padding-bottom: 5%;
 }
