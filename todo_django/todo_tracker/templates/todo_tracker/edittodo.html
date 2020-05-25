@@ -1,0 +1,47 @@
+{% extends 'todo_tracker/main.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1>Edit Todo Page</h1>
+  <hr>
+			
+  <!-- Form to edit TODO -->
+  <form action="" method="POST">
+    <div class="form-row align-items-center">
+      
+      <!-- for TODO text -->
+      <div class="form-group col-md-4">
+        <label for="textField">TODO </label>
+        <input type="text" class="form-control" id="textField" placeholder="{{todo.todo_text}}">
+      </div>
+
+      <!-- for TODO Deadline -->
+      <div class="form-group col-md-3">
+        <label for="deadline">Deadline</label>
+        <input type="date" class="form-control" id="deadline" placeholder="{{todo.deadline}}">
+      </div>
+
+      <!-- for TODO Progress -->
+      <div class="form-group col-md-2">
+        <label for="percentage">Progress</label>
+        <input type="number" class="form-control" id="percentage" placeholder="{{todo.progress}}">
+      </div>
+
+      <!-- Buttons to Save or Delete -->
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-outline-primary mt-md-3">Save</button>
+        <button type="delete" class="btn btn-outline-danger mt-md-3" title="Delete to be..." disabled>Delete</button>
+      </div>
+
+      {% csrf_token %}
+      {{form}}
+
+    </div>
+  </form>
+
+  <!-- Back to Overview Button -->
+  <a href="{% url 'overview' %}" class="btn btn-primary mt-3" role="button">Back to Overview</a>
+</div>
+
+{% endblock %}
