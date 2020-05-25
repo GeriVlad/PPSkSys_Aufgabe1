@@ -14,6 +14,13 @@ def overview(request):
     context = {'todos': todos}
     return render(request, 'todo_tracker/overview.html', context)
 
+def deletetodo(request, pk):
+    todo = Todo.objects.get(id=pk)
+
+    if request.method == 'POST':
+        todo.delete()
+        return redirect('overview')
+
 def edittodo(request, pk):
     todo = Todo.objects.get(id=pk)
     form = TodoForm(instance=todo)

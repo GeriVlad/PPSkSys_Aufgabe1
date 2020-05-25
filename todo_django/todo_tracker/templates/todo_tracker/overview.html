@@ -39,8 +39,11 @@
 					</td>
 					<!-- Buttons for Edit and Delete -->
 					<td>
-						<a href="{% url 'edittodo' todo.id %}" class="btn btn-primary btn-autosize" role="button">Edit</a>
-						<button type="submit" class="btn btn-danger btn-autosize">Delete</button>
+						<form action="{% url 'deletetodo' todo.id %}" method="POST">
+							{% csrf_token %}
+							<a href="{% url 'edittodo' todo.id %}" class="btn btn-primary btn-autosize" role="button">Edit</a>
+							<button type="submit" class="btn btn-danger btn-autosize">Delete</button>
+						</form>
 					</td>
 				</tr>
 
