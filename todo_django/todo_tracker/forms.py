@@ -1,7 +1,14 @@
-from django.forms import ModelForm
+from django import forms
 from .models import Todo
 
-class TodoForm(ModelForm):
+class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = '__all__'
+        fields = ('todo_text', 'deadline', 'progress')
+
+        widgets = {
+            
+            'todo_text': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Text (less than 160 symbols)'}),
+            'deadline': forms.DateInput(attrs={'class': 'form-control'}),
+            'progress': forms.NumberInput(attrs={'class': 'form-control'}),
+        }

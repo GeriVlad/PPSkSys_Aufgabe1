@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+# from django.http import HttpResponse
 
 # Create your views here.
 from .models import *
@@ -35,7 +35,6 @@ def edittodo(request, pk):
     return render(request, 'todo_tracker/edittodo.html', context)
 
 def newtodo(request):
-
     form = TodoForm()
     if request.method == 'POST':
         form = TodoForm(request.POST)
