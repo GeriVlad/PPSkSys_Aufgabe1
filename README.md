@@ -62,7 +62,7 @@ Install django with pip
 
 
 
-Start the webserver with the command `python manage.py runserver` from the todo_django directory
+Start the webserver with the command `python manage.py runserver` from the `todo_django` directory
 
 Then go to [http://127.0.0.1:8000/todo_tracker](http://127.0.0.1:8000/todo_tracker) to acess the todo webpage
 
