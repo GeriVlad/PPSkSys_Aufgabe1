@@ -9,6 +9,6 @@ class TodoForm(forms.ModelForm):
         widgets = {
             
             'todo_text': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Text (less than 160 symbols)'}),
-            'deadline': forms.DateInput(attrs={'class': 'form-control'}),
+            'deadline': forms.DateInput(attrs={'class': 'form-control', 'placeholder': 'yyyy-mm-dd'}),
             'progress': forms.NumberInput(attrs={'class': 'form-control'}),
         }
