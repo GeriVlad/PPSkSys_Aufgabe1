@@ -1,0 +1,60 @@
+{% extends 'todo_tracker/main.html' %}
+
+{% block content %}
+
+
+<!-- Main content of the site -->
+<main>
+	<div class="container">
+		<!-- Heading -->
+		<h1>Your TODOs</h1>
+
+		<!-- Table for TODOs -->
+		<table class="table table-hover table-striped">
+			<!-- First row with labels-->
+			<thead> 
+				<tr>
+					<th scope="col">ToDo</th>
+					<th scope="col">Deadline</th>
+					<th scope="col">Progress</th>
+					<th scope="col">Modify</th>
+				</tr>
+			</thead>
+
+			<!-- Individual TODOs --> 
+			<tbody>
+
+			{% for todo in todos %}
+				<tr>
+					<td>{{todo.todo_text}}</td>
+					<td>{{todo.deadline}}</td>
+					<!-- Progress bar with label -->
+					<td>
+						<div class="progress position-relative">
+							<!-- style="width", aria-valuenow and label text all need to be changed to show up properly -->
+							<div class="progress-bar" role="progressbar" style="width: {{todo.progress}}%;" aria-valuenow="{{todo.progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+							<!-- to center the label on the progress bar -->
+							<small class="justify-content-center d-flex position-absolute w-100 font-weight-bold">{{todo.progress}}%</small>
+						</div>
+					</td>
+					<!-- Buttons for Edit and Delete -->
+					<td>
+						<form action="{% url 'deletetodo' todo.id %}" method="POST">
+							{% csrf_token %}
+							<a href="{% url 'edittodo' todo.id %}" class="btn btn-primary btn-autosize" role="button">Edit</a>
+							<button type="submit" class="btn btn-danger btn-autosize">Delete</button>
+						</form>
+					</td>
+				</tr>
+
+			{%endfor%}
+
+			</tbody>
+		</table>
+
+		<!-- Button to create new todo page -->
+		<a href="{% url 'newtodo' %}" class="btn btn-primary" role="button">Create New TODO</a>
+	</div>
+</main>
+		
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'todo_tracker/main.html' %}
+
+{% block content %}
+
+<div class="container">
+  <h1>New Todo Page</h1>
+  <hr>
+      
+  <!-- Form to create new TODO -->
+  <form action="" method="POST">
+    <div class="form-row align-items-center">
+
+      {% csrf_token %}
+      {% for field in form %}
+      <div class="form-group col-md-3">
+        {{field.label_tag}}
+        {{field}}
+      </div>
+      {% endfor %}
+
+      <!-- Buttons to Save or Delete -->
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-outline-primary mt-md-3">Save</button>
+        <a href="{% url 'newtodo' %}" class="btn btn-outline-danger mt-md-3" role="button">Clear</a>
+      </div>
+    </div>
+  </form>
+
+  <!-- Back to Overview Button -->
+  <a href="{% url 'overview' %}" class="btn btn-primary mt-3" role="button">Back to Overview</a>
+</div>
+
+{% endblock %}
